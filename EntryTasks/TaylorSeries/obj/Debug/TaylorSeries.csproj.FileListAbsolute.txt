@@ -1,0 +1,11 @@
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\KthFactorial\TaylorSeries\bin\Debug\TaylorSeries.exe.config
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\KthFactorial\TaylorSeries\bin\Debug\TaylorSeries.exe
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\KthFactorial\TaylorSeries\bin\Debug\TaylorSeries.pdb
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\KthFactorial\TaylorSeries\obj\Debug\TaylorSeries.exe
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\KthFactorial\TaylorSeries\obj\Debug\TaylorSeries.pdb
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\TaylorSeries\bin\Debug\TaylorSeries.exe.config
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\TaylorSeries\obj\Debug\TaylorSeries.exe
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\TaylorSeries\obj\Debug\TaylorSeries.pdb
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\TaylorSeries\bin\Debug\TaylorSeries.exe
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\TaylorSeries\bin\Debug\TaylorSeries.pdb
+D:\Programming\Hack Bulgaria\Core Ruby\EntryTasks\TaylorSeries\obj\Debug\TaylorSeries.csprojResolveAssemblyReference.cache

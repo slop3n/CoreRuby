@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaylorSeries", "TaylorSeries\TaylorSeries.csproj", "{9B57C551-EDCD-4D5E-8E21-E83A8364DB64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KthFactorial", "KthFactorial\KthFactorial.csproj", "{867229C7-CFA4-41A6-B038-5C7F3EBB3055}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B57C551-EDCD-4D5E-8E21-E83A8364DB64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B57C551-EDCD-4D5E-8E21-E83A8364DB64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B57C551-EDCD-4D5E-8E21-E83A8364DB64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B57C551-EDCD-4D5E-8E21-E83A8364DB64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{867229C7-CFA4-41A6-B038-5C7F3EBB3055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{867229C7-CFA4-41A6-B038-5C7F3EBB3055}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{867229C7-CFA4-41A6-B038-5C7F3EBB3055}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{867229C7-CFA4-41A6-B038-5C7F3EBB3055}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
