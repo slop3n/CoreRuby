@@ -15,33 +15,43 @@ class SolutionTest < Minitest::Test
     end
   end
 
-  def test_map
-    collection = Collection.new(*1..5)
+#   def test_map
+#     collection = Collection.new(*1..5)
 
-    assert_equals [2, 3, 4, 5, 6], collection.map(&:succ)
-  end
+#     assert_equals [2, 3, 4, 5, 6], collection.map(&:succ)
+#   end
 
-  def test_filter
-    collection = Collection.new(*1..10)
+#   def test_filter
+#     collection = Collection.new(*1..10)
 
-    assert_equals [1, 3, 5, 7, 9], collection.filter(&:odd?)
-  end
+#     assert_equals [1, 3, 5, 7, 9], collection.filter(&:odd?)
+#   end
 
-  def test_reject
-    collection = Collection.new(*1..10)
+#   def test_reject
+#     collection = Collection.new(*1..10)
 
-    assert_equals [1, 3, 5, 7, 9], collection.reject(&:even?)
-  end
+#     assert_equals [1, 3, 5, 7, 9], collection.reject(&:even?)
+#   end
 
-  def test_reduce
-    collection = Collection.new(*1..10)
+#   def test_reduce
+#     collection = Collection.new(*1..10)
 
-    assert_equals 55, collection.reduce(0) { |sum, n| sum + n }
-  end
+#     assert_equals 55, collection.reduce(0) { |sum, n| sum + n }
+#   end
 
   def test_include?
     collection = Collection.new(*1..10)
+    assert_equal(true, collection.include?(5))
+  end
 
-    assert_equals true, collection.include?(5)
+  def test_count
+    collection = Collection.new(*1..10)
+    assert_equal(1, collection.count(5))
+  end
+
+  def test_each_cons
+    collection = Collection.new(*1..10)
+    answer = [1,3,5,7,9]
+    assert_equal(answer, collection.each_cons(2))
   end
 end
