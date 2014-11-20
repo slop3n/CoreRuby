@@ -38,4 +38,34 @@ class SolutionTest < Minitest::Test
     result = first / second
     assert_equal(answer, result)
   end
+
+  def test_normalized_vector
+    vector = Vector.new(0.25,0.25,0.25,0.25).normalize
+    second_vector = Vector.new(1,1,1,1).normalize
+    assert_equal(vector, second_vector)
+  end
+
+  def test_set_index
+    vector = Vector.new(1,2,3,4)
+    vector[1] = 5
+    assert_equal(5, vector[1])
+  end
+
+  def test_equality
+    vector = Vector.new(1,2,3,4,5)
+    second_vector = Vector.new(1,2,3,4,5)
+    assert_equal(vector, second_vector)
+  end
+
+  def test_dimension
+    vector = Vector.new(1,2,3,4,5,6,7)
+    assert_equal(7, vector.dimension)
+  end
+
+  def test_lenght
+    answer = 5.4772
+    vector = Vector.new(1,2,3,4)
+    assert_equal(answer, (vector.length).round(4))
+  end
 end
+

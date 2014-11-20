@@ -7,13 +7,25 @@ class Track
     @album = album
     @genre = genre
   end
+
+  def to_s
+    "#{artist}, #{name}, #{album}, #{genre}"
+  end
+
+  def ==(other)
+    return false if self.artist != other.artist
+    return false if self.name != other.name
+    return false if self.album != other.album
+    return false if self.genre != other.album
+    return true
+  end
 end
 
 class Playlist
   attr_accessor :tracks
 
   def initialize(*tracks)
-    @tracks = tracks
+    @tracks = tracks.flatten
   end
 
   def self.from_yaml(path)
@@ -21,63 +33,105 @@ class Playlist
   end
 
   def each
-    # Your code goes here.
+    @tracks.each do |x|
+      yield(x)
+    end
   end
 
   def find(&block)
-    # Filter the playlist by a block. Should return a new Playlist.
+    Playlist.new(@tracks.select(&block))
   end
 
   def find_by(*filters)
-    # Filter is any object that responds to the method #call. #call accepts one
-    # argument, the track it should match or not match.
-    #
+    # Filter is any object that responds to the method #call.
+    # call accepts one argument, the track it should match or not match.
     # Should return a new Playlist.
   end
 
-  def find_by_name(name)
-    # Filter the playlist by a block. Should return a new Playlist.
+  def add(track)
+    @tracks << track
   end
 
-  def find_by_artist(artist)
-    # Finds all the tracks by the artist
+  def find_helper(type, value)
+    tracks = []
+    tracks << @tracks.select { |x| x.public_send(type) == value }
+    tracks
   end
 
-  def find_by_album(album)
-    # Finds all the tracks from the album.
+  def find_by_artist(artist_to_find)
+    Playlist.new(find_helper("artist", artist_to_find))
   end
 
-  def find_by_genre(genre)
-    # Finds all the tracks by genre.
+  def find_by_name(name_to_find)
+    Playlist.new(find_helper("name",name_to_find))
+  end
+
+  def find_by_album(album_to_find)
+    Playlist.new(find_helper("album", album_to_find))
+  end
+
+  def find_by_genre(genre_to_find)
+    Playlist.new(find_helper("genre", genre_to_find))
   end
 
   def shuffle
-    # Give me a new playlist that shuffles the tracks of the current one.
+    @tracks.shuffle
   end
 
   def random
-    # Give me a random track.
+    @tracks[rand(tracks.count)]
   end
 
   def to_s
-    # It should return a nice tabular representation of all the tracks.
-    # Checkout the String method for something that can help you with that.
+    string = ""
+    self.each do |track|
+      string += "Artist: #{track.artist}, Track: #{track.name}, Album: #{track.album}, Genre: #{track.genre}\n"
+    end
+    string
   end
 
   def &(playlist)
-    # Your code goes here. This _should_ return new playlist.
+    tracks = []
+
   end
 
   def |(playlist)
-    # Your code goes here. This _should_ return new playlist.
+    tracks = @tracks.dup
+    playlist.each do |track|
+      tracks << track
+    end
+    Playlist.new(tracks.uniq)
   end
 
   def -(playlist)
-    # Your code goes here. This _should_ return new playlist.
+    new_tracks = @tracks.dup
+    playlist.each do |track|
+      new_tracks = new_tracks.reject { |other_track| track == other_track }
+    end
+    Playlist.new(new_tracks)
+  end
+
+  def ==(other)
+    @tracks.each do |x|
+      other.each do |y|
+        return false if x != y
+      end
+    end
+    true
   end
 end
 
-track = Track.new "KAYTRANADA feat. Shay Lia",
-                  "Leave me alone",
-                  "So Bad",
-                  "Dance"
+track1 = Track.new "The Panacea", "Ryse and Shine", "album 1", "dnb"
+track11 = Track.new "The Panacea", "Ryse and Shine", "album 1", "dnb"
+track2 = Track.new "Muffler", "Can You Feel", "album 2", "liquid dnb"
+track3 = Track.new "Sigma", "The Reason", "album 3", "liquid dnb"
+track4 = Track.new "Counterstrike", "Bodybag", "album 3", "dnb"
+track5 = Track.new "Cooh", "Moscow", "album 3", "dnb"
+track6 = Track.new "Counterstrike", "Draco", "album 3", "dnb"
+
+puts track1 == track11
+
+playlist = Playlist.new(track1, track2, track3)
+
+playlist2 = Playlist.new(track1,track2,track3)
+puts playlist == playlist2

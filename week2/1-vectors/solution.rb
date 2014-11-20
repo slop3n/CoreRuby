@@ -78,7 +78,7 @@ class Vector2D
 
   def to_s
     return "The X coordinate for the vector is #{x}" +
-     " and the Y coordinate is #{y}"
+      " and the Y coordinate is #{y}"
   end
 
   def e
@@ -201,3 +201,6 @@ class Vector
 
   alias magnitude length
 end
+
+vector = Vector.new(1,2,3,4)
+puts vector.length
