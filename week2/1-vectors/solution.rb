@@ -201,6 +201,3 @@ class Vector
 
   alias magnitude length
 end
-
-vector = Vector.new(1,2,3,4)
-puts vector.length

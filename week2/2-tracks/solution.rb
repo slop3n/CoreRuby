@@ -43,9 +43,11 @@ class Playlist
   end
 
   def find_by(*filters)
-    # Filter is any object that responds to the method #call.
-    # call accepts one argument, the track it should match or not match.
-    # Should return a new Playlist.
+    tracks = [].tap do |tracks|
+      filters.each do |filter|
+        tracks << @tracks.select { |x| filter.call(x)}
+      end
+    end
   end
 
   def add(track)
@@ -92,7 +94,9 @@ class Playlist
 
   def &(playlist)
     tracks = []
-
+    playlist.each do |track|
+      tracks << track if @tracks.include? track
+    end
   end
 
   def |(playlist)
@@ -110,28 +114,10 @@ class Playlist
     end
     Playlist.new(new_tracks)
   end
-
-  def ==(other)
-    @tracks.each do |x|
-      other.each do |y|
-        return false if x != y
-      end
-    end
-    true
-  end
 end
 
-track1 = Track.new "The Panacea", "Ryse and Shine", "album 1", "dnb"
-track11 = Track.new "The Panacea", "Ryse and Shine", "album 1", "dnb"
-track2 = Track.new "Muffler", "Can You Feel", "album 2", "liquid dnb"
-track3 = Track.new "Sigma", "The Reason", "album 3", "liquid dnb"
-track4 = Track.new "Counterstrike", "Bodybag", "album 3", "dnb"
-track5 = Track.new "Cooh", "Moscow", "album 3", "dnb"
-track6 = Track.new "Counterstrike", "Draco", "album 3", "dnb"
+def add value=1
+  puts value
+end
 
-puts track1 == track11
-
-playlist = Playlist.new(track1, track2, track3)
-
-playlist2 = Playlist.new(track1,track2,track3)
-puts playlist == playlist2
+add

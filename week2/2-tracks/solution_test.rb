@@ -12,8 +12,5 @@ class SolutionTest < Minitest::Test
     track2 = Track.new("Netsky", "Everyday", "Album 2", "liquid dnb")
     track3 = Track.new("State of Mind", "Sun King", "Album 2", "dnb")
     playlist = Playlist.new(track1, track2, track3)
-    answer = Playlist.new(Track.new("Sigma", "The Reason", "Album 1", "liquid dnb"))
-    assert_equal(answer, playlist.find_by_name("The Reason"))
   end
-
 end
